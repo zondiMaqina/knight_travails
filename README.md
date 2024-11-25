@@ -3,6 +3,9 @@ A chessboard piece that travels from point A -> B using the shortest path possib
 
 This project is the most challenging one yet i have came across, at first i had no idea on where to start bacause i hade to use the Data Structures i have learnt such as BFS to solve the problem.
 
+> [!IMPORTANT]
+> Be sure to run `bundle install` in the .bundle directory to install all dependencies
+
 ## Challanges
 
 I had to use an algortihm that will help me find the shortest path from one place to another on a non weghted graph (Chessboard)
