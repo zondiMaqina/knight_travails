@@ -1,9 +1,9 @@
 # Class for keeping data of each edge in queue
 class Item
-  attr_reader :from, :to, :cost
+  attr_reader :prev, :to, :cost
 
-  def initialize(from = nil, to = nil, edges_travelled = 0)
-    @from = from
+  def initialize(prev = nil, to = nil, edges_travelled = 0)
+    @prev = prev
     @to = to
     @cost = edges_travelled
   end
