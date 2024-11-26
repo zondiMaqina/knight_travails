@@ -1,6 +1,5 @@
 require_relative 'vertices_set/item'
-require_relative 'vertices_set/nodes'
-require_relative 'chessboard/chessboard'
+require_relative 'vertices_set/node'
 
 class KnightTravails
   def initialize
@@ -24,3 +23,6 @@ class KnightTravails
     (index1 + move[0] >= 0 && index1 + move[0] < 8) && (index2 + move[1] >= 0 && index2 + move[1] < 8)
   end
 end
+
+travails = KnightTravails.new
+p travails.edges([0, 0])
