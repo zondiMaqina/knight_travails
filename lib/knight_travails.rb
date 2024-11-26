@@ -1,12 +1,12 @@
 require_relative 'vertices_set/item'
 require_relative 'vertices_set/node'
-
+# class for finding shortest path betwen coordiinates [x, y] -> [i, j]
 class KnightTravails
-  attr_accessor :start, :end, :path_cost
+  attr_accessor :start, :path_cost
+
   def initialize
     @start = [0, 0] # default start
-    @end = nil # default end
-    @path_cost = {@start => ['', '']} # keeps track of paths in traversal
+    @path_cost = { @start => ['', ''] } # keeps track of paths in traversal
     @queue = [] # keeps track of all valid knight moves
   end
 
@@ -28,32 +28,48 @@ class KnightTravails
 
   def knight_moves(start, endpoint)
     cost = 0
-    set_move(start)
-    valid_moves = []
-   while !@queue.empty? || @path_cost[endpoint] != nil
-    cost += 1
-    generate_valid_moves(valid_moves, cost)
-    break if @path_cost[endpoint] != nil
-   end
-   @path_cost
+    first_move(start)
+    while !@queue.empty? || !@path_cost[endpoint].nil?
+      cost += 1
+      generate_valid_moves(cost)
+      break unless @path_cost[endpoint].nil?
+    end
+    # tracks back all moves made to destination
+    print_path(@path_cost, endpoint, start)
   end
 
-  def generate_valid_moves(valid_moves, cost)
+  def generate_valid_moves(cost)
+    # pops off first item
     current_move = @queue.shift
     # returns all next valid moves from current point and saves to array
     valid_moves = edges(current_move.to)
     # adds next possible moves on queue for each node
-    valid_moves.each {|next_valid_move| @queue << Item.new(current_move.to, next_valid_move, cost)} 
-    valid_moves.each {|move| @path_cost[move] = [current_move.to, cost] if @path_cost[move] == nil}
-    valid_moves = []
+    valid_moves.each do |next_valid_move|
+      @queue << Item.new(current_move.to, next_valid_move, cost)
+      @path_cost[next_valid_move] = [current_move.to, cost] if @path_cost[next_valid_move].nil?
+    end
   end
 
-  def set_move(start)
+  def first_move(start)
     # initializes the queue and path_cost with the FIRST node (vertex)
     @queue << Item.new(nil, start, 0) # adds node's previous node and cost to get there
-    @path_cost[@start] = [@queue[0].prev, @queue[0].cost]# initializes the first node visited as start
+    @path_cost[@start] = [@queue[0].prev, @queue[0].cost] # initializes the first node visited as start
+  end
+
+  def print_path(path, endpoint, start)
+    shortest_path = [] # stores all moves used in path
+    if !path[endpoint].nil? # traxks moves from end to start
+      shortest_path << endpoint
+      until shortest_path.include?(start)
+        shortest_path << path[endpoint][0]
+        endpoint = path[endpoint][0]
+      end
+      p shortest_path.reverse # returns appropriate path from start to end
+    else
+      puts 'suggested end point is not available'
+    end
   end
 end
 
 travails = KnightTravails.new
-p travails.knight_moves([0, 0], [2, 1])
+travails.knight_moves([0, 0], [3, 3])
