@@ -32,21 +32,28 @@ class KnightTravails
     valid_moves = []
    while !@queue.empty? || @path_cost[endpoint] != nil
     cost += 1
-    current_move = @queue.shift
-    valid_moves = edges(current_move.to)
-    valid_moves.each {|move| @queue << Item.new(current_move.to, move, cost)} # adds next possible moves on queue
-    valid_moves.each {|move| @path_cost[move] = [current_move.to, cost] if @path_cost[move] == nil}
-    valid_moves = []
+    generate_valid_moves(valid_moves, cost)
     break if @path_cost[endpoint] != nil
    end
    @path_cost
   end
 
+  def generate_valid_moves(valid_moves, cost)
+    current_move = @queue.shift
+    # returns all next valid moves from current point and saves to array
+    valid_moves = edges(current_move.to)
+    # adds next possible moves on queue for each node
+    valid_moves.each {|next_valid_move| @queue << Item.new(current_move.to, next_valid_move, cost)} 
+    valid_moves.each {|move| @path_cost[move] = [current_move.to, cost] if @path_cost[move] == nil}
+    valid_moves = []
+  end
+
   def set_move(start)
-    @queue << Item.new(nil, start, 0)
-    @path_cost[@start] = [@queue[0].prev, @queue[0].cost]
+    # initializes the queue and path_cost with the FIRST node (vertex)
+    @queue << Item.new(nil, start, 0) # adds node's previous node and cost to get there
+    @path_cost[@start] = [@queue[0].prev, @queue[0].cost]# initializes the first node visited as start
   end
 end
 
 travails = KnightTravails.new
-p travails.knight_moves([0, 0], [3, 3])
+p travails.knight_moves([0, 0], [2, 1])
