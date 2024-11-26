@@ -15,3 +15,4 @@ class ChessBoard
      end
     end
   end
+end
