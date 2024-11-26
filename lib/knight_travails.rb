@@ -2,8 +2,11 @@ require_relative 'vertices_set/item'
 require_relative 'vertices_set/node'
 
 class KnightTravails
+  attr_accessor :start, :end
   def initialize
-    @path_cost = {} # keeps track of paths in traversal
+    @start = [0, 0] # default start
+    @end = nil # default end
+    @path_cost = {@start: ['', '']} # keeps track of paths in traversal
     @queue = [] # keeps track of all valid knight moves
   end
 
@@ -21,6 +24,9 @@ class KnightTravails
   def appropriate(move, index1, index2)
     # method checks if the maximum possible moves apply to the gievn point
     (index1 + move[0] >= 0 && index1 + move[0] < 8) && (index2 + move[1] >= 0 && index2 + move[1] < 8)
+  end
+
+  def knight_moves(start, end)
   end
 end
 
