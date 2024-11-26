@@ -42,5 +42,7 @@ Ite class stores edges on queue (`from` and `to` coordinates)
 ## Discoveries
 
 It turns out for `Hash.new` i can use any Data Type even arrays themselves (coordinates)
-
 `hash = {[0, 0] => 'data'}`
+
+> [! WARNING]
+> I myself can't even understand some of the code i wrote here
