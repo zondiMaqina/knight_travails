@@ -24,3 +24,23 @@ SO i tried the following:
 > Although i could not use the Dijkstra's algorithm for this porblem it does not neccesarily mean it is not possible.
 
 2. So i then used this Algortihm `Breadth First Search` where i do not need to have a weighted graph to find the shortest path possible from one node to every other node
+
+## Data Structures and Algorithms
+
+### Data Structures
+- Queue
+- Hash
+- Item class
+
+Queue wil keep track of all valid knight moves on each
+Hash will store all the previous moves on current move
+Ite class stores edges on queue (`from` and `to` coordinates)
+
+### Algortihms
+- Breadth First Search
+
+## Discoveries
+
+It turns out for `Hash.new` i can use any Data Type even arrays themselves (coordinates)
+
+`hash = {[0, 0] => 'data'}`
