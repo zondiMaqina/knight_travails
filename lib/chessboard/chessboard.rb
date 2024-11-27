@@ -2,8 +2,6 @@ require_relative 'knight_piece'
 require 'colorize'
 # class for 2D array of board both physical for printing (chessboard) and digital (board)
 class ChessBoard
-  attr_accessor :board
-
   def print_chessboard(path)
     path.each do |move|
       (0..7).each do |row|
