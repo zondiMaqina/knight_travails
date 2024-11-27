@@ -1,5 +1,4 @@
 require_relative 'vertices_set/item'
-require_relative 'chessboard/knight_piece'
 require_relative 'chessboard/chessboard'
 # class for finding shortest path betwen coordiinates [x, y] -> [i, j]
 class KnightTravails

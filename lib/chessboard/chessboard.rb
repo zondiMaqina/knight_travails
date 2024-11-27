@@ -1,4 +1,3 @@
-require_relative 'knight_piece'
 require 'colorize'
 # class for 2D array of board both physical for printing (chessboard) and digital (board)
 class ChessBoard
