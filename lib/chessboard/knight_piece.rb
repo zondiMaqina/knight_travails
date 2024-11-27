@@ -1,12 +1,11 @@
 require 'colorize'
-require_relative '../knight_travails'
 # class for knight piece on chessboard
-class Knight < KnightTravails
+class Knight
   attr_accessor :knight, :path
 
-  def initialize
+  def initialize(path)
     @knight = '♞'.colorize(:green)
-    @path = []
+    @path = path
   end
 
   def show_path
@@ -20,5 +19,3 @@ class Knight < KnightTravails
     string
   end
 end
-
-p Knight.new.show_path
