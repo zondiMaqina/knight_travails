@@ -1,5 +1,4 @@
 require_relative 'vertices_set/item'
-require_relative 'chessboard/chessboard'
 # class for finding shortest path betwen coordiinates [x, y] -> [i, j]
 class KnightTravails
   attr_accessor :start, :path_cost
@@ -66,7 +65,6 @@ class KnightTravails
         endpoint = path[endpoint][0]
       end
       p show_path(shortest_path.reverse, start, destination) # returns appropriate path from start to end
-      ChessBoard.new.print_chessboard(shortest_path.reverse)
     else
       'suggested end point is not available'
     end
