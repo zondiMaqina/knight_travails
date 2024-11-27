@@ -84,5 +84,3 @@ class KnightTravails
     string
   end
 end
-
-KnightTravails.new.knight_moves([0, 0], [3, 3])
