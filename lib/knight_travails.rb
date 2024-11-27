@@ -58,16 +58,29 @@ class KnightTravails
   end
 
   def print_path(path, endpoint, start)
-    @shortest_path = [] # stores all moves used in path
+    shortest_path = [] # stores all moves used in path
     if !path[endpoint].nil? # traxks moves from end to start
-      @shortest_path << endpoint
-      until @shortest_path.include?(start)
-        @shortest_path << path[endpoint][0]
+      shortest_path << endpoint
+      until shortest_path.include?(start)
+        shortest_path << path[endpoint][0]
         endpoint = path[endpoint][0]
       end
-      Knight.new(@shortest_path.reverse) # returns appropriate path from start to end
+      show_path(shortest_path.reverse) # returns appropriate path from start to end
     else
       'suggested end point is not available'
     end
   end
+
+  def show_path(path)
+    result = path
+    if result.is_a?(Array)
+      string = "Nice, you made it in #{result.size - 1} moves "
+      result.each do |move|
+        string += move.to_s
+      end
+    end
+    string
+  end
 end
+
+puts KnightTravails.new.knight_moves([0, 0], [3, 3])
