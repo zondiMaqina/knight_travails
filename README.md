@@ -32,9 +32,9 @@ SO i tried the following:
 - Hash
 - Item class
 
-Queue wil keep track of all valid knight moves on each
-Hash will store all the previous moves on current move
-Ite class stores edges on queue (`from` and `to` coordinates)
+Queue wil keep track of all valid knight moves on each BFS
+Hash will store all the previous moves on saved moves
+Item class stores edges on queue (`from` and `to` squares on chessboard)
 
 ### Algortihms
 - Breadth First Search
@@ -45,4 +45,5 @@ It turns out for `Hash.new` i can use any Data Type even arrays themselves (coor
 `hash = {[0, 0] => 'data'}`
 
 > [! WARNING]
-> I myself can't even understand some of the code i wrote here
+> I myself can't even understand some of the code i wrote here for i used AI to help me print the chessboard, which was a bad thing by the way :/
+
