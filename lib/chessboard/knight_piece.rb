@@ -3,8 +3,7 @@ require 'colorize'
 class Knight
   attr_accessor :knight, :path
 
-  def initialize(path)
+  def initialize
     @knight = '♞'.colorize(:green)
-    @path = path
   end
 end
