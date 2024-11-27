@@ -44,6 +44,3 @@ Item class stores edges on queue (`from` and `to` squares on chessboard)
 It turns out for `Hash.new` i can use any Data Type even arrays themselves (coordinates)
 `hash = {[0, 0] => 'data'}`
 
-> [!WARNING]
-> I myself did not wite  some of the code i wrote here for i used AI to help me program the printed chessboard on terminal, which was a bad thing by the way :/, ey but shout out to chatgpt tho he a real one !!!
-
