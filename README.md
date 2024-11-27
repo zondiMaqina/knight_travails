@@ -4,7 +4,7 @@ A chessboard piece that travels from point A -> B using the shortest path possib
 This project is the most challenging one yet i have came across, at first i had no idea on where to start bacause i hade to use the Data Structures i have learnt such as BFS to solve the problem.
 
 > [!IMPORTANT]
-> Be sure to run `bundle install` in the .bundle directory to install all dependencies
+> Be sure to run `bundle install` in the .bundle directory to install all dependencies and then run `ruby main.rb` which is the root file
 
 ## Challanges
 
